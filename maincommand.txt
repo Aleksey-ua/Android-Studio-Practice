@@ -1,0 +1,120 @@
+List of devices attached:
+adb devices
+
+
+
+Full description of de vices:
+
+adb devices -l
+
+
+
+example: 
+adb devices
+
+List of devices attached
+
+4eaaf270	device
+
+------------------------------------------
+
+
+
+Lets install manually an app.
+
+For example our app is: "com.united.mobile.apk" (name of application use only once - in installation process).
+Download an apk file in our working directory.
+
+Run command:
+
+adb install "com.united.mobile.apk"
+
+
+
+For uninstalling an app run command:
+
+adb uninstall "com.united.mobile.apk"
+
+
+-------------------------------------------
+
+
+
+Packages info:
+
+adb shell
+ (we are in the shell now, adb command doesn't work here)
+	pm list packages 			(list all packages on your device)
+
+	pm list packages -f 			(will give you a full path where all the above packages being located)
+	pm list packages -f | grep united 	(you will get a package name for United app: "package:/data/app/com.united.mobile.android-XJooK-eCWf7ylCLHVDDF5w==/base.apk=com.united.mobile.android")
+
+
+
+
+
+
+
+Exit from shell:
+exit
+-------------------------------------------
+
+How to Collect LOGS from Device:
+
+Log files start running in terminal:
+adb logcat 	(its going to run all logs possible)
+adb logcat *:E 	(for errors logs onley)
+adb logcat *:F 	(for fatalm logs onley)
+adb logcat *:I	(for information logs onley)
+adb logcat *:V	(for verbouse logs only)
+adb logcat *:D	(for debugging logs onley)
+adb logcat *:W	(for warning logs onley)
+To stop logs press "Ctrl+C"
+
+Collect logs from our device and place it in a text file:
+adb logcat *:E -d >elogs.txt
+To stop logs collecting press "Ctrl+C"
+
+Collect logs from our app and place it in a text file:
+adb logcat *:E -d >unitedlelogs.txt | shell grep "com.united.mobile.android"
+To stop logs collecting press "Ctrl+C"
+-------------------------------------------
+
+
+
+How to make your device REMOTE
+1. Set your Device and PC to the SAME network (the same WI-FI)
+2. Àind out the IP address of your device (Settings->About device->Status->IP:192.168.4.243)
+3. Restarting in the usb mode:
+adb usb
+4. Assigning port 5556 for our virtual gadget
+adb tcpip 5556
+5. "Marry" our IP address to the port 5556 ("connected to 192.168.4.243:5556" message should be receiving):
+adb connect 192.168.4.243:5556
+6. Disconnect USB cable from your device and PC and type command:
+adb devices
+Your Device is show listed:
+192.168.4.243:5556	device
+
+
+
+
+
+
+
+
+
+
+
+
+
+Monkey Test TOOL in Android studio (stress test for UI functionality)
+adb shell monkey -p com.united.mobile.android 4000
+
+4000 is a number of taps your app is going to receive. Can be any of numbers you want.
+
+Reboot your device after Monkey test:
+adb reboot
+
+
+
