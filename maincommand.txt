@@ -22,7 +22,8 @@ List of devices attached
 
 Lets install manually an app.
 
-For example our app is: "com.united.mobile.apk" (name of application use only once - in installation process).
+For example our app is: "United Airlines_v4.1.12_apkpure.com.apk" (the name of application use only once - in installation process).
+
 Download an apk file in our working directory.
 
 Run command:
@@ -95,18 +96,15 @@ adb connect 192.168.4.243:5556
 adb devices
 Your Device is show listed:
 192.168.4.243:5556	device
+----------------------------------------------
 
+Install app from remote device:
+adb -s 192.168.4.243:5556 install "United Airlines_v4.1.12_apkpure.com.apk"
+----------------------------------------------
 
-
-
-
-
-
-
-
-
-
-
+Uninstall app from remote device:
+adb -s 192.168.4.243:5556 uninstall "com.united.mobile.android"
+--------------------------------------------------
 
 Monkey Test TOOL in Android studio (stress test for UI functionality)
 adb shell monkey -p com.united.mobile.android 4000
