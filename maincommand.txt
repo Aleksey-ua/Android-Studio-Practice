@@ -3,7 +3,7 @@ adb devices
 
 
 
-Full description of de vices:
+Full description of devices:
 
 adb devices -l
 
