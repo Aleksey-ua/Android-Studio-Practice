@@ -41,11 +41,11 @@ adb logcat *:W	(for warning logs onley)
 To stop logs press "Ctrl+C"
 
 Collect logs from our device and place it in a text file:
-adb logcat *:E -d >elogs.txt
+adb logcat *:E >elogs.txt
 To stop logs collecting press "Ctrl+C"
 
 Collect logs from our app and place it in a text file:
-adb logcat *:E -d >unitedlelogs.txt | shell grep "com.united.mobile.android"
+adb logcat *:E >unitedlelogs.txt | shell grep "com.united.mobile.android"
 To stop logs collecting press "Ctrl+C"
 -------------------------------------------------------------
 
@@ -68,6 +68,7 @@ adb -s 192.168.4.243:5556 install "United Airlines_v4.1.12_apkpure.com.apk"
 -------------------------------------------------------------
 Uninstall app from remote device:
 adb -s 192.168.4.243:5556 uninstall "com.united.mobile.android"
+
 -------------------------------------------------------------
 Monkey Test TOOL in Android studio (stress test for UI functionality)
 adb shell monkey -p com.united.mobile.android 4000
