@@ -47,6 +47,17 @@ To stop logs collecting press "Ctrl+C"
 Collect logs from our app and place it in a text file:
 adb logcat *:E >unitedlelogs.txt | shell grep "com.united.mobile.android"
 To stop logs collecting press "Ctrl+C"
+Or:
+adb logcat -v threadtime >.\log.txt | shell grep "com.united.mobile.android"
+To stop logs press "Ctrl+C"
+Or:
+Clear your device log stored so far:
+adb logcat -c
+Reproduce your bug from beginning to end
+Collect the log typing:
+adb logcat -d -v time >.\log.txt | shell grep "com.united.mobile.android"
+
+
 -------------------------------------------------------------
 
 How to make your device REMOTE
